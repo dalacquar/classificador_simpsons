@@ -1,23 +1,20 @@
-Projeto de Classificação de Personagens dos Simpsons
+#Projeto de Classificação de Personagens dos Simpsons:
+
 Este projeto consiste em um sistema de classificação de personagens dos Simpsons utilizando características extraídas de imagens e um classificador KNN (K-Nearest Neighbors). O objetivo é treinar o classificador com um conjunto de imagens de treino e avaliar sua acurácia usando um conjunto de imagens de teste.
 
-Organização do diretório
+##Organização do diretório
 O diretório atual contém as seguintes pastas:
 
-Train: Pasta que contém as imagens utilizadas para treinamento.
-Valid: Pasta que contém as imagens utilizadas para teste.
-Arquivos
+###Train:
+  Pasta que contém as imagens utilizadas para treinamento.
+###Valid:
+  Pasta que contém as imagens utilizadas para teste.
+###Arquivos:
 extrator_caracteristicas.py
-Este script é responsável por extrair as características das imagens e salvar os dados de treino e teste em arquivos CSV.
-
-extract_features(image_path): Função que recebe o caminho de uma imagem e retorna o histograma de cores normalizado.
-process_images(directory): Função que processa todas as imagens em um diretório, extrai suas características e retorna as características e rótulos correspondentes.
-train_dir e valid_dir: Diretórios de treino e teste, respectivamente.
-train_data.csv e valid_data.csv: Arquivos CSV contendo os dados de treino e teste, respectivamente.
-classificador_knn.py
-Este script carrega os dados de treinamento e teste dos arquivos CSV gerados pelo extrator_caracteristicas.py e realiza a classificação utilizando o algoritmo KNN.
+Este código é responsável por extrair as características das imagens e salvar os dados de treino e teste em arquivos CSV.
 
 train_data.csv e valid_data.csv: Arquivos CSV contendo os dados de treino e teste, respectivamente.
+
 Loop para testar vários valores ímpares de k.
 knn = KNeighborsClassifier(n_neighbors=k): Criação do classificador KNN com o número de vizinhos igual a k.
 accuracy_score(valid_labels, predictions): Cálculo da acurácia do classificador.
