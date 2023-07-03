@@ -2,32 +2,38 @@ import os
 import cv2
 import pandas as pd
 
+
 def extract_features(image_path):
     image = cv2.imread(image_path)
     image = cv2.resize(image, (64, 64))  # Redimensione a imagem para um tamanho adequado
-    
+
     # Extraia o histograma de cores
     hist = cv2.calcHist([image], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
     hist = cv2.normalize(hist, hist).flatten()
-    
+
     return hist
+
 
 def process_images(directory):
     features = []
     labels = []
-    
-    for filename in os.listdir(directory):
-        if filename.endswith(".bmp"):
-            image_path = os.path.join(directory, filename)
-            label = filename.split(".")[0].split("0")[0]  # Extrai apenas o nome do personagem
-            
-            # Extraia as características da imagem
-            hist = extract_features(image_path)
-            
-            features.append(hist)
-            labels.append(label)
-    
+
+    for subdir in os.listdir(directory):
+        sub_dir_path = os.path.join(directory, subdir)
+        if os.path.isdir(sub_dir_path):
+            for filename in os.listdir(sub_dir_path):
+                if filename.endswith(".bmp"):
+                    image_path = os.path.join(sub_dir_path, filename)
+                    label = subdir  # O nome da subpasta é o rótulo
+
+                    # Extraia as características da imagem
+                    hist = extract_features(image_path)
+
+                    features.append(hist)
+                    labels.append(label)
+
     return features, labels
+
 
 # Diretórios de treino e teste
 train_dir = "Train"
