@@ -1,7 +1,6 @@
 # Projeto de Classificação de Personagens dos Simpsons
 
-Este projeto consiste em um sistema de classificação de personagens dos Simpsons utilizando características extraídas de imagens e um classificador KNN (K-Nearest Neighbors). O objetivo é treinar o classificador com um conjunto de imagens dos simpsons
-e avaliar sua acurácia usando um conjunto de imagens de teste, que tenta classificar corretamente qual personagem está presente na imagem.
+Este projeto consiste em um sistema de classificação de personagens dos Simpsons utilizando características extraídas de imagens e alguns classificadores. O objetivo é treinar o classificador com um conjunto de imagens dos simpsons e avaliar sua acurácia usando um conjunto de imagens de teste, que tenta classificar corretamente qual personagem está presente na imagem.
 
 ## Organização do diretório
 
